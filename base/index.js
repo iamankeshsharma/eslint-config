@@ -22,6 +22,8 @@ export default defineConfig([
       prettier,
     ],
     rules: {
+      'no-console': 'error',
+      
       "import/no-duplicates": "error",
 
       "simple-import-sort/imports": "error",
