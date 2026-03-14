@@ -14,7 +14,8 @@
   },
 
   "exports": {
-    "./base": "./base/index.js"
+    ".": "./base/index.js",
+    "./react": "./react/index.js"
   },
 
   "peerDependencies": {
