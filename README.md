@@ -1,4 +1,4 @@
-# github:iamankeshsharma/eslint-config
+# @ankesh/eslint-config
 
 Shared ESLint configuration for JavaScript and TypeScript projects.
 
