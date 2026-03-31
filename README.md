@@ -21,7 +21,7 @@ pnpm add -D eslint github:iamankeshsharma/eslint-config @eslint/js typescript-es
 Create an `eslint.config.js` file in your project.
 
 ```js
-import base from "github:iamankeshsharma/eslint-config/base";
+import base from "@ankesh/eslint-config";
 
 export default [
   ...base
@@ -50,8 +50,8 @@ pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
 Then extend your config:
 
 ```js
-import base from "github:iamankeshsharma/eslint-config/base";
-import react from "github:iamankeshsharma/eslint-config/react";
+import base from "@ankesh/eslint-config";
+import react from "@ankesh/eslint-config";
 
 export default [
   ...base,
@@ -85,7 +85,7 @@ These rules enforce:
 
 ## Project Structure
 
-```
+```text
 eslint-config/
 ├ base/
 │  └ index.js
