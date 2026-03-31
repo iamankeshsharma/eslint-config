@@ -1,4 +1,4 @@
-# @ankesh/eslint-config
+# github:iamankeshsharma/eslint-config
 
 Shared ESLint configuration for JavaScript and TypeScript projects.
 
@@ -11,7 +11,7 @@ This package provides a **framework-agnostic base configuration** that enforces 
 Install the config and required peer dependencies.
 
 ```bash
-pnpm add -D eslint @ankesh/eslint-config @eslint/js typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier
+pnpm add -D eslint github:iamankeshsharma/eslint-config @eslint/js typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier
 ```
 
 ---
@@ -21,7 +21,7 @@ pnpm add -D eslint @ankesh/eslint-config @eslint/js typescript-eslint eslint-plu
 Create an `eslint.config.js` file in your project.
 
 ```js
-import base from "@ankesh/eslint-config/base";
+import base from "github:iamankeshsharma/eslint-config/base";
 
 export default [
   ...base
@@ -50,8 +50,8 @@ pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
 Then extend your config:
 
 ```js
-import base from "@ankesh/eslint-config/base";
-import react from "@ankesh/eslint-config/react";
+import base from "github:iamankeshsharma/eslint-config/base";
+import react from "github:iamankeshsharma/eslint-config/react";
 
 export default [
   ...base,
