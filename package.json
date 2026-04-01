@@ -23,7 +23,7 @@
     "@eslint/js": "^10",
     "typescript-eslint": "^8",
     "eslint-plugin-import": "^2",
-    "eslint-plugin-unicorn": "^63",
+    "eslint-plugin-unicorn": "^63 || ^64",
     "eslint-plugin-sonarjs": "^4",
     "eslint-plugin-simple-import-sort": "^12",
     "eslint-config-prettier": "^10"
