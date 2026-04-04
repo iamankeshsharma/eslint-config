@@ -21,6 +21,14 @@ export default defineConfig([
       tseslint.configs.recommended,
       prettier,
     ],
+    ignores: [
+      "node_modules",
+      ".next",
+      "dist",
+      "build",
+      "coverage",
+      "public",
+    ],
     rules: {
       'no-console': 'error',
       
