@@ -1,8 +1,10 @@
 import reactHooks from "eslint-plugin-react-hooks";
 import { defineConfig } from "eslint/config";
-import base from "../base/index.js";
+import createBaseConfig from "../base/index.js";
 
-export default defineConfig([
-  ...base,
-  reactHooks.configs.flat.recommended,
-]);
+export default function createReactConfig(options = {}) {
+  return defineConfig([
+    ...createBaseConfig(options),
+    reactHooks.configs.flat.recommended,
+  ]);
+}

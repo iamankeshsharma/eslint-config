@@ -7,41 +7,55 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import prettier from "eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 
-export default defineConfig([
-  {
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    plugins: {
-      import: importPlugin,
-      unicorn,
-      sonarjs,
-      "simple-import-sort": simpleImportSort,
+const DEFAULT_IGNORES = [
+  "node_modules",
+  ".next",
+  "dist",
+  "build",
+  "coverage",
+  "public",
+];
+
+export default function createConfig(options = {}) {
+  const {
+    ignores = [],
+    rules = {},
+  } = options;
+
+  return defineConfig([
+    // Global ignores
+    {
+      ignores: [...DEFAULT_IGNORES, ...ignores],
     },
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      prettier,
-    ],
-    ignores: [
-      "node_modules",
-      ".next",
-      "dist",
-      "build",
-      "coverage",
-      "public",
-    ],
-    rules: {
-      'no-console': 'error',
-      
-      "import/no-duplicates": "error",
 
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+    // Main config
+    {
+      files: ["**/*.{js,jsx,ts,tsx}"],
+      plugins: {
+        import: importPlugin,
+        unicorn,
+        sonarjs,
+        "simple-import-sort": simpleImportSort,
+      },
+      extends: [
+        js.configs.recommended,
+        tseslint.configs.recommended,
+        prettier,
+      ],
+      rules: {
+        // default rules
+        "no-console": "error",
+        "import/no-duplicates": "error",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "unicorn/prefer-array-flat": "error",
+        "unicorn/prefer-query-selector": "error",
+        "sonarjs/no-duplicate-string": "warn",
+        "sonarjs/cognitive-complexity": ["warn", 15],
 
-      "unicorn/prefer-array-flat": "error",
-      "unicorn/prefer-query-selector": "error",
-
-      "sonarjs/no-duplicate-string": "warn",
-      "sonarjs/cognitive-complexity": ["warn", 15],
+        // user overrides
+        ...rules,
+      },
     },
-  },
-]);
+  ]);
+}
