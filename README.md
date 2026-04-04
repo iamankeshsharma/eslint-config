@@ -2,9 +2,7 @@
 
 Shared ESLint configuration for JavaScript and TypeScript projects.
 
-This package provides a **framework-agnostic base configuration** that enforces modern JavaScript practices, consistent imports, code quality rules, and Prettier compatibility.
-
----
+This package provides a **framework-agnostic, customizable configuration** that enforces modern JavaScript practices, consistent imports, code quality rules, and Prettier compatibility.
 
 ## 🚀 Installation
 
@@ -13,46 +11,61 @@ This package provides a **framework-agnostic base configuration** that enforces 
 ### ✅ Recommended (Stable Setup)
 
 ```bash
-pnpm add -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn@^63 eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier github:iamankeshsharma/eslint-config
+npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn@^63 eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier github:iamankeshsharma/eslint-config
 ```
-
----
 
 ## 📦 Usage
 
 Create an `eslint.config.js` file in your project:
 
 ```js
-import base from "@ankesh/eslint-config";
-
-export default [
-  ...base
-];
+import createConfig from "@ankesh/eslint-config";
+export default createConfig();
 ```
 
----
+## ⚙️ Customization
+
+You can customize ignores and rules:
+
+```js
+import createConfig from "@ankesh/eslint-config";
+
+export default createConfig({
+  ignores: ["coverage", "generated"],
+  rules: {
+    "no-console": "warn",
+  },
+});
+```
 
 ## ⚛️ React Usage (Optional)
 
 If you're using React, install additional plugins:
 
 ```bash
-pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
+npm install -D eslint-plugin-react eslint-plugin-react-hooks
 ```
 
-Then extend your config:
+Then use:
 
 ```js
-import base from "@ankesh/eslint-config";
-import react from "@ankesh/eslint-config/react";
+import createReactConfig from "@ankesh/eslint-config/react";
 
-export default [
-  ...base,
-  ...react
-];
+export default createReactConfig();
 ```
 
----
+## ⚛️ React + Custom Options
+
+```js
+import createReactConfig from "@ankesh/eslint-config/react";
+
+export default createReactConfig({
+  ignores: ["coverage"],
+  rules: {
+    "no-console": "warn",
+  },
+});
+```
 
 ## ✨ Included Features
 
@@ -66,8 +79,6 @@ The base configuration includes rules from:
 * `eslint-plugin-simple-import-sort`
 * `eslint-config-prettier`
 
----
-
 ## 🧠 What You Get
 
 * Modern JavaScript best practices
@@ -76,8 +87,7 @@ The base configuration includes rules from:
 * Automatic import sorting
 * Code quality and maintainability rules
 * Seamless Prettier compatibility
-
----
+* Customizable configuration via options
 
 ## ⚠️ Version Compatibility
 
@@ -86,37 +96,7 @@ This config supports:
 * `eslint` → `^9 || ^10`
 * `@eslint/js` → `^9 || ^10`
 
-👉 **Recommended:** Use ESLint 9 for now (better plugin support)
-
----
-
-## 🛠 Troubleshooting
-
-### ❌ Dependency conflicts (ERESOLVE)
-
-If you see install errors:
-
-```bash
-rm -rf node_modules pnpm-lock.yaml
-pnpm install
-```
-
-### ❌ ESLint version issues
-
-Make sure your project uses compatible versions:
-
-```bash
-pnpm list eslint @eslint/js
-```
-
-Expected:
-
-```text
-eslint 9.x
-@eslint/js 9.x
-```
-
----
+**Recommended:** Use ESLint 9 for now (better plugin support)
 
 ## 📁 Project Structure
 
@@ -129,16 +109,14 @@ eslint-config/
 └ package.json
 ```
 
----
-
 ## 📄 License
 
 MIT
 
----
-
 ## 💡 Notes
 
-* This config uses **peerDependencies**, so your project must install required packages
+* This config uses **ESLint Flat Config (v9+)**
+* Config is **function-based (factory pattern)** for flexibility
+* Uses **peerDependencies**, so your project must install required packages
 * Versions are **not auto-managed** — use the recommended install command
 * Designed to be **flexible and future-proof**
