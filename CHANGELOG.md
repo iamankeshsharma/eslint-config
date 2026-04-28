@@ -1,22 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on Keep a Changelog  
-https://keepachangelog.com/en/1.0.0/  
-and this project follows Semantic Versioning.
+## [1.1.0](https://github.com/iamankeshsharma/eslint-config/compare/v1.0.1...v1.1.0) (2026-04-28)
 
----
 
-## [Unreleased]
+### Features
 
-### Added
-
-### Changed
-
-### Fixed
-
----
+* improve package and readme ([ea0a08e](https://github.com/iamankeshsharma/eslint-config/commit/ea0a08ef5a6279d87ae383f420ec8aa27ced222a))
 
 ## [1.0.0] - 2026-04-29
 
