@@ -1,31 +1,50 @@
 # @ankesh/eslint-config
 
-Shared ESLint configuration for JavaScript and TypeScript projects.
+> Modern, composable ESLint config for JavaScript, TypeScript, React, Next.js & Tailwind CSS
 
-This package provides a **framework-agnostic, customizable configuration** that enforces modern JavaScript practices, consistent imports, code quality rules, and Prettier compatibility.
+![npm version](https://img.shields.io/npm/v/@ankesh/eslint-config) ![downloads](https://img.shields.io/npm/dm/@ankesh/eslint-config) ![license](https://img.shields.io/github/license/iamankeshsharma/eslint-config) ![stars](https://img.shields.io/github/stars/iamankeshsharma/eslint-config?style=social)
+
+---
+
+## ✨ Why this config?
+
+Most ESLint configs are:
+
+- too rigid ❌  
+- too minimal ❌  
+- hard to extend ❌  
+
+This config is:
+
+- ✅ Modular  
+- ✅ Composable  
+- ✅ Flat config ready (ESLint v9+)  
+- ✅ Works with modern stacks (Next.js, Tailwind, TS)  
+- ✅ Designed for real-world scaling (monorepos, teams)  
+
+---
 
 ## 🚀 Installation
 
-> ⚠️ ESLint ecosystem requires compatible versions. Use the command below to avoid conflicts.
-
-### ✅ Recommended (Stable Setup)
-
 ```bash
-npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn@^63 eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier github:iamankeshsharma/eslint-config
+npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier @ankesh/eslint-config
 ```
+
+---
 
 ## 📦 Usage
 
-Create an `eslint.config.js` file in your project:
+### Base
 
 ```js
 import createConfig from "@ankesh/eslint-config";
+
 export default createConfig();
 ```
 
-## ⚙️ Customization
+---
 
-You can customize ignores and rules:
+## ⚙️ Customization
 
 ```js
 import createConfig from "@ankesh/eslint-config";
@@ -38,15 +57,17 @@ export default createConfig({
 });
 ```
 
-## ⚛️ React Usage (Optional)
+---
 
-If you're using React, install additional plugins:
+## ⚛️ React
+
+### Install
 
 ```bash
 npm install -D eslint-plugin-react eslint-plugin-react-hooks
 ```
 
-Then use:
+### Usage
 
 ```js
 import createReactConfig from "@ankesh/eslint-config/react";
@@ -54,69 +75,251 @@ import createReactConfig from "@ankesh/eslint-config/react";
 export default createReactConfig();
 ```
 
-## ⚛️ React + Custom Options
+---
 
-```js
-import createReactConfig from "@ankesh/eslint-config/react";
+## ▲ Next.js
 
-export default createReactConfig({
-  ignores: ["coverage"],
-  rules: {
-    "no-console": "warn",
-  },
-});
+### Install 
+
+```bash
+npm install -D @next/eslint-plugin-next eslint-plugin-react eslint-plugin-react-hooks
 ```
 
-## ✨ Included Features
+### Usage
 
-The base configuration includes rules from:
+```js
+import createNextConfig from "@ankesh/eslint-config/next";
 
-* `@eslint/js`
-* `typescript-eslint`
-* `eslint-plugin-import`
-* `eslint-plugin-unicorn`
-* `eslint-plugin-sonarjs`
-* `eslint-plugin-simple-import-sort`
-* `eslint-config-prettier`
+export default createNextConfig();
+```
+
+---
+
+## 🎨 Tailwind CSS
+
+### Install
+
+```bash
+npm install -D eslint-plugin-tailwindcss prettier prettier-plugin-tailwindcss
+```
+
+### Usage
+
+```js
+import createTailwindConfig from "@ankesh/eslint-config/tailwind";
+
+export default createTailwindConfig();
+```
+
+---
+
+## ✨ Tailwind + Prettier
+
+```json
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+- ✔ Automatically sorts Tailwind classes
+- ✔ Cleaner diffs in PRs
+
+---
+
+## ⚡ Combined Setup (Recommended)
+
+### Next.js + Tailwind
+
+```js
+import createNextConfig from "@ankesh/eslint-config/next";
+import tailwindcss from "eslint-plugin-tailwindcss";
+
+export default [
+  ...createNextConfig(),
+
+  {
+    plugins: { tailwindcss },
+    settings: {
+      tailwindcss: {
+        callees: ["clsx", "cn"],
+        config: "tailwind.config.js",
+      },
+    },
+    rules: {
+      "tailwindcss/classnames-order": "warn",
+      "tailwindcss/no-contradicting-classname": "error",
+    },
+  },
+];
+```
+
+---
 
 ## 🧠 What You Get
 
-* Modern JavaScript best practices
-* TypeScript support
-* Clean and consistent imports
-* Automatic import sorting
-* Code quality and maintainability rules
-* Seamless Prettier compatibility
-* Customizable configuration via options
+### Core
 
-## ⚠️ Version Compatibility
+- ESLint v9 flat config
+- TypeScript support
+- Import sorting
+- Code quality rules (SonarJS)
+- Unicorn best practices
+- Prettier compatibility
 
-This config supports:
+### React / Next.js
 
-* `eslint` → `^9 || ^10`
-* `@eslint/js` → `^9 || ^10`
+- Hooks enforcement
+- JSX best practices
+- Next.js Core Web Vitals rules
 
-**Recommended:** Use ESLint 9 for now (better plugin support)
+### Tailwind
 
-## 📁 Project Structure
+- Class order enforcement
+- Conflict detection
+- Shorthand optimization
+
+---
+
+## 🏗️ Project Structure
 
 ```text
 eslint-config/
 ├ base/
-│  └ index.js
 ├ react/
-│  └ index.js
+├ next/
+├ tailwind/
 └ package.json
 ```
+
+---
+
+## 🔧 Scripts
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  }
+}
+```
+
+---
+
+## ⚠️ Version Compatibility
+
+| Package           | Version   |
+| ----------------- | --------- |
+| eslint            | ^9 || ^10 |
+| @eslint/js        | ^9 || ^10 |
+| typescript-eslint | ^8        |
+
+👉 Recommended: ESLint v9
+
+---
+
+## 💡 Best Practices
+
+- Use `clsx` / `cn` for class composition
+- Avoid excessive Tailwind arbitrary values
+- Prefer reusable UI components
+- Run lint in CI pipelines
+
+---
+## 📦 Versioning Strategy
+
+This project follows **Semantic Versioning (SemVer)**:
+
+| Type   | When to use                           | Example  |
+|--------|----------------------------------------|----------|
+| Patch  | Bug fixes, small improvements          | 0.1.1    |
+| Minor  | New features (backward compatible)     | 0.2.0    |
+| Major  | Breaking changes                       | 1.0.0    |
+
+### Commands
+
+```bash
+npm version patch   # bug fixes
+npm version minor   # new features
+npm version major   # breaking changes
+```
+
+👉 Each command:
+
+- Updates `package.json`
+- Creates a Git commit
+- Creates a Git tag
+
+---
+
+## 🚀 Publishing Flow
+
+### 1. Build & verify locally
+
+```bash
+npm run lint
+```
+
+(Optional)
+
+```bash
+npm pack
+```
+
+👉 Check what files will be published
+
+---
+
+### 2. Login to npm
+
+```bash
+npm login
+```
+
+---
+
+### 3. Publish package
+
+```bash
+npm publish --access public
+```
+
+---
+
+### 4. Verify
+
+* Visit: [https://www.npmjs.com/package/@ankesh/eslint-config](https://www.npmjs.com/package/@ankesh/eslint-config)
+* Test install:
+
+```bash
+npm install @ankesh/eslint-config
+```
+
+---
+
+## 🔄 Update & Re-publish
+
+```bash
+npm version patch
+git push --follow-tags
+npm publish
+```
+
+
+---
+
+## 🤝 Contributing
+
+PRs are welcome. For major changes, open an issue first.
+
+---
 
 ## 📄 License
 
 MIT
 
-## 💡 Notes
+---
 
-* This config uses **ESLint Flat Config (v9+)**
-* Config is **function-based (factory pattern)** for flexibility
-* Uses **peerDependencies**, so your project must install required packages
-* Versions are **not auto-managed** — use the recommended install command
-* Designed to be **flexible and future-proof**
+## ⭐ Support
+
+If this helped you, consider giving a star ⭐

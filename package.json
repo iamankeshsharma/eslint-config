@@ -1,31 +1,61 @@
 {
   "name": "@ankesh/eslint-config",
   "version": "1.0.0",
-  "description": "Shared ESLint configuration",
+  "description": "Composable ESLint config for JS, TS, React, Next.js & Tailwind",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@10.32.1",
-
-  "private": true,
-
   "repository": {
     "type": "git",
     "url": "https://github.com/iamankeshsharma/eslint-config"
   },
-
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "typescript",
+    "react",
+    "nextjs",
+    "tailwindcss"
+  ],
+   "author": "Ankesh Sharma",
+  "homepage": "https://github.com/iamankeshsharma/eslint-config",
+  "bugs": {
+    "url": "https://github.com/iamankeshsharma/eslint-config/issues"
+  },
+    "files": [
+    "base",
+    "react",
+    "next",
+    "tailwind"
+  ],
   "exports": {
     ".": "./base/index.js",
-    "./react": "./react/index.js"
+    "./react": "./react/index.js",
+    "./tailwind": "./tailwind/index.js",
+    "./next": "./next/index.js"
   },
-
- "peerDependencies": {
+  "peerDependencies": {
   "eslint": "^9 || ^10",
   "@eslint/js": "^9 || ^10",
   "typescript-eslint": "^8",
+
   "eslint-plugin-import": "^2",
   "eslint-plugin-unicorn": "^63 || ^64",
   "eslint-plugin-sonarjs": "^4",
   "eslint-plugin-simple-import-sort": "^12",
-  "eslint-config-prettier": "^9 || ^10"
- }
+  "eslint-config-prettier": "^9 || ^10",
+
+  "eslint-plugin-react": "^7",
+  "eslint-plugin-react-hooks": "^4",
+  "@next/eslint-plugin-next": "^14",
+
+  "eslint-plugin-tailwindcss": "^3"
+},
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^16.2.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-tailwindcss": "^3.18.3"
+  }
 }
