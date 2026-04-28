@@ -4,6 +4,18 @@
 
 ![npm version](https://img.shields.io/npm/v/@ankesh/eslint-config) ![downloads](https://img.shields.io/npm/dm/@ankesh/eslint-config) ![license](https://img.shields.io/github/license/iamankeshsharma/eslint-config) ![stars](https://img.shields.io/github/stars/iamankeshsharma/eslint-config?style=social)
 
+## ⚡ Quick Start
+
+```bash
+npm install -D @ankesh/eslint-config eslint
+```
+
+```js
+import config from "@ankesh/eslint-config";
+
+export default config();
+```
+
 ---
 
 ## ✨ Why this config?

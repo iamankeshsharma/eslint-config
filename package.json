@@ -9,14 +9,19 @@
     "type": "git",
     "url": "https://github.com/iamankeshsharma/eslint-config"
   },
+  "scripts": {
+    "release": "standard-version"
+  },
   "keywords": [
     "eslint",
-    "eslintconfig",
-    "eslint-config",
-    "typescript",
-    "react",
-    "nextjs",
-    "tailwindcss"
+  "eslint-config",
+  "eslint flat config",
+  "typescript eslint config",
+  "nextjs eslint config",
+  "tailwind eslint config",
+  "react eslint config",
+  "eslint v9",
+  "monorepo eslint"
   ],
   "author": "Ankesh Sharma",
   "homepage": "https://github.com/iamankeshsharma/eslint-config",
@@ -36,23 +41,24 @@
     "./next": "./next/index.js"
   },
   "peerDependencies": {
-    "eslint": "^9 || ^10",
     "@eslint/js": "^9 || ^10",
-    "typescript-eslint": "^8",
-    "eslint-plugin-import": "^2",
-    "eslint-plugin-unicorn": "^63 || ^64",
-    "eslint-plugin-sonarjs": "^4",
-    "eslint-plugin-simple-import-sort": "^12",
+    "@next/eslint-plugin-next": "^14",
+    "eslint": "^9 || ^10",
     "eslint-config-prettier": "^9 || ^10",
+    "eslint-plugin-import": "^2",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-hooks": "^4",
-    "@next/eslint-plugin-next": "^14",
-    "eslint-plugin-tailwindcss": "^3"
+    "eslint-plugin-simple-import-sort": "^12",
+    "eslint-plugin-sonarjs": "^4",
+    "eslint-plugin-tailwindcss": "^3",
+    "eslint-plugin-unicorn": "^63 || ^64",
+    "typescript-eslint": "^8"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.2.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-tailwindcss": "^3.18.3"
+    "eslint-plugin-tailwindcss": "^3.18.3",
+    "standard-version": "^9.5.0"
   }
 }
