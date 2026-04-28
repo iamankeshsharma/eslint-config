@@ -1,17 +1,17 @@
-# @ankesh/eslint-config
+# @iamankeshsharma/eslint-config
 
 > Modern, composable ESLint config for JavaScript, TypeScript, React, Next.js & Tailwind CSS
 
-![npm version](https://img.shields.io/npm/v/@ankesh/eslint-config) ![downloads](https://img.shields.io/npm/dm/@ankesh/eslint-config) ![license](https://img.shields.io/github/license/iamankeshsharma/eslint-config) ![stars](https://img.shields.io/github/stars/iamankeshsharma/eslint-config?style=social)
+![npm version](https://img.shields.io/npm/v/@iamankeshsharma/eslint-config) ![downloads](https://img.shields.io/npm/dm/@iamankeshsharma/eslint-config) ![license](https://img.shields.io/github/license/iamankeshsharma/eslint-config) ![stars](https://img.shields.io/github/stars/iamankeshsharma/eslint-config?style=social)
 
 ## ⚡ Quick Start
 
 ```bash
-npm install -D @ankesh/eslint-config eslint
+npm install -D @iamankeshsharma/eslint-config eslint
 ```
 
 ```js
-import config from "@ankesh/eslint-config";
+import config from "@iamankeshsharma/eslint-config";
 
 export default config();
 ```
@@ -39,7 +39,7 @@ This config is:
 ## 🚀 Installation
 
 ```bash
-npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier @ankesh/eslint-config
+npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier @iamankeshsharma/eslint-config
 ```
 
 ---
@@ -49,7 +49,7 @@ npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import es
 ### Base
 
 ```js
-import createConfig from "@ankesh/eslint-config";
+import createConfig from "@iamankeshsharma/eslint-config";
 
 export default createConfig();
 ```
@@ -59,7 +59,7 @@ export default createConfig();
 ## ⚙️ Customization
 
 ```js
-import createConfig from "@ankesh/eslint-config";
+import createConfig from "@iamankeshsharma/eslint-config";
 
 export default createConfig({
   ignores: ["coverage", "generated"],
@@ -82,7 +82,7 @@ npm install -D eslint-plugin-react eslint-plugin-react-hooks
 ### Usage
 
 ```js
-import createReactConfig from "@ankesh/eslint-config/react";
+import createReactConfig from "@iamankeshsharma/eslint-config/react";
 
 export default createReactConfig();
 ```
@@ -100,7 +100,7 @@ npm install -D @next/eslint-plugin-next eslint-plugin-react eslint-plugin-react-
 ### Usage
 
 ```js
-import createNextConfig from "@ankesh/eslint-config/next";
+import createNextConfig from "@iamankeshsharma/eslint-config/next";
 
 export default createNextConfig();
 ```
@@ -118,7 +118,7 @@ npm install -D eslint-plugin-tailwindcss prettier prettier-plugin-tailwindcss
 ### Usage
 
 ```js
-import createTailwindConfig from "@ankesh/eslint-config/tailwind";
+import createTailwindConfig from "@iamankeshsharma/eslint-config/tailwind";
 
 export default createTailwindConfig();
 ```
@@ -143,7 +143,7 @@ export default createTailwindConfig();
 ### Next.js + Tailwind
 
 ```js
-import createNextConfig from "@ankesh/eslint-config/next";
+import createNextConfig from "@iamankeshsharma/eslint-config/next";
 import tailwindcss from "eslint-plugin-tailwindcss";
 
 export default [
@@ -300,11 +300,11 @@ npm publish --access public
 
 ### 4. Verify
 
-* Visit: [https://www.npmjs.com/package/@ankesh/eslint-config](https://www.npmjs.com/package/@ankesh/eslint-config)
+* Visit: [https://www.npmjs.com/package/@iamankeshsharma/eslint-config](https://www.npmjs.com/package/@iamankeshsharma/eslint-config)
 * Test install:
 
 ```bash
-npm install @ankesh/eslint-config
+npm install @iamankeshsharma/eslint-config
 ```
 
 ---

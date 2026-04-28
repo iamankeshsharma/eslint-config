@@ -1,7 +1,7 @@
 {
-  "name": "@ankesh/eslint-config",
+  "name": "@iamankeshsharma/eslint-config",
   "version": "1.1.1",
-  "description": "Composable ESLint config for JS, TS, React, Next.js & Tailwind",
+  "description": "Zero-config ESLint setup for Next.js, TypeScript & Tailwind (ESLint v9 Flat Config)",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@10.32.1",
@@ -13,15 +13,16 @@
     "release": "standard-version"
   },
   "keywords": [
-    "eslint",
-    "eslint-config",
-    "eslint flat config",
-    "typescript eslint config",
-    "nextjs eslint config",
-    "tailwind eslint config",
-    "react eslint config",
-    "eslint v9",
-    "monorepo eslint"
+      "eslint",
+  "eslint-config",
+  "eslint flat config",
+  "typescript eslint",
+  "nextjs eslint",
+  "tailwind eslint",
+  "react eslint",
+  "eslint v9",
+  "monorepo eslint",
+  "zero config eslint"
   ],
   "author": "Ankesh Sharma",
   "homepage": "https://github.com/iamankeshsharma/eslint-config",
