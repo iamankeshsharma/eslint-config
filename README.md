@@ -1,13 +1,16 @@
+
 # @iamankeshsharma/eslint-config
 
 > Modern, composable ESLint config for JavaScript, TypeScript, React, Next.js & Tailwind CSS
 
 ![npm version](https://img.shields.io/npm/v/@iamankeshsharma/eslint-config) ![downloads](https://img.shields.io/npm/dm/@iamankeshsharma/eslint-config) ![license](https://img.shields.io/github/license/iamankeshsharma/eslint-config) ![stars](https://img.shields.io/github/stars/iamankeshsharma/eslint-config?style=social)
 
+---
+
 ## ⚡ Quick Start
 
 ```bash
-npm install -D @iamankeshsharma/eslint-config eslint
+npm install -D eslint @iamankeshsharma/eslint-config
 ```
 
 ```js
@@ -22,25 +25,28 @@ export default config();
 
 Most ESLint configs are:
 
-- too rigid ❌  
-- too minimal ❌  
-- hard to extend ❌  
+* too rigid ❌
+* too minimal ❌
+* hard to extend ❌
 
 This config is:
 
-- ✅ Modular  
-- ✅ Composable  
-- ✅ Flat config ready (ESLint v9+)  
-- ✅ Works with modern stacks (Next.js, Tailwind, TS)  
-- ✅ Designed for real-world scaling (monorepos, teams)  
+* ✅ Modular
+* ✅ Composable
+* ✅ Flat config ready (ESLint v9+)
+* ✅ Works with modern stacks (Next.js, Tailwind, TS)
+* ✅ Flexible peer dependencies (no install conflicts)
+* ✅ Designed for real-world scaling (monorepos, teams)
 
 ---
 
 ## 🚀 Installation
 
 ```bash
-npm install -D eslint@^9 @eslint/js@^9 typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier @iamankeshsharma/eslint-config
+npm install -D eslint @eslint/js typescript-eslint eslint-plugin-import eslint-plugin-unicorn eslint-plugin-sonarjs eslint-plugin-simple-import-sort eslint-config-prettier @iamankeshsharma/eslint-config
 ```
+
+👉 Install additional plugins only when needed (React, Next, Tailwind).
 
 ---
 
@@ -91,7 +97,7 @@ export default createReactConfig();
 
 ## ▲ Next.js
 
-### Install 
+### Install
 
 ```bash
 npm install -D @next/eslint-plugin-next eslint-plugin-react eslint-plugin-react-hooks
@@ -133,8 +139,8 @@ export default createTailwindConfig();
 }
 ```
 
-- ✔ Automatically sorts Tailwind classes
-- ✔ Cleaner diffs in PRs
+* ✔ Automatically sorts Tailwind classes
+* ✔ Cleaner diffs in PRs
 
 ---
 
@@ -171,24 +177,24 @@ export default [
 
 ### Core
 
-- ESLint v9 flat config
-- TypeScript support
-- Import sorting
-- Code quality rules (SonarJS)
-- Unicorn best practices
-- Prettier compatibility
+* ESLint v9 flat config
+* TypeScript support
+* Import sorting
+* Code quality rules (SonarJS)
+* Unicorn best practices
+* Prettier compatibility
 
 ### React / Next.js
 
-- Hooks enforcement
-- JSX best practices
-- Next.js Core Web Vitals rules
+* Hooks enforcement
+* JSX best practices
+* Next.js Core Web Vitals rules
 
 ### Tailwind
 
-- Class order enforcement
-- Conflict detection
-- Shorthand optimization
+* Class order enforcement
+* Conflict detection
+* Shorthand optimization
 
 ---
 
@@ -211,7 +217,9 @@ eslint-config/
 {
   "scripts": {
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "release": "standard-version",
+    "release:dry": "standard-version --dry-run"
   }
 }
 ```
@@ -220,77 +228,72 @@ eslint-config/
 
 ## ⚠️ Version Compatibility
 
-| Package           | Version   |
-| ----------------- | --------- |
-| eslint            | ^9 || ^10 |
-| @eslint/js        | ^9 || ^10 |
-| typescript-eslint | ^8        |
+| Package           | Version |
+| ----------------- | ------- |
+| eslint            | ^9      |
+| @eslint/js        | ^9      |
+| typescript-eslint | ^8      |
 
-👉 Recommended: ESLint v9
+👉 Designed for ESLint v9 flat config
+
+---
+
+## 🚀 Release Workflow
+
+This project uses **standard-version** for automated versioning and changelog generation.
 
 ---
 
-## 💡 Best Practices
-
-- Use `clsx` / `cn` for class composition
-- Avoid excessive Tailwind arbitrary values
-- Prefer reusable UI components
-- Run lint in CI pipelines
-
----
-## 📦 Versioning Strategy
-
-This project follows **Semantic Versioning (SemVer)**:
-
-| Type   | When to use                           | Example  |
-|--------|----------------------------------------|----------|
-| Patch  | Bug fixes, small improvements          | 0.1.1    |
-| Minor  | New features (backward compatible)     | 0.2.0    |
-| Major  | Breaking changes                       | 1.0.0    |
-
-### Commands
+### 🧩 1. Write Conventional Commits
 
 ```bash
-npm version patch   # bug fixes
-npm version minor   # new features
-npm version major   # breaking changes
+feat: add react config support
+fix: resolve peer dependency issue
+chore: update dependencies
 ```
 
-👉 Each command:
+#### Version Impact
 
-- Updates `package.json`
-- Creates a Git commit
-- Creates a Git tag
+| Commit Type     | Version Bump |
+| --------------- | ------------ |
+| fix             | Patch        |
+| feat            | Minor        |
+| BREAKING CHANGE | Major        |
 
 ---
 
-## 🚀 Publishing Flow
-
-### 1. Build & verify locally
+### ⚙️ 2. Create Release
 
 ```bash
-npm run lint
+npm run release
 ```
 
-(Optional)
+👉 Automatically:
+
+* bumps version
+* updates `CHANGELOG.md`
+* creates commit + tag
+
+---
+
+### 🔍 3. Verify
 
 ```bash
 npm pack
+git log --oneline -5
 ```
-
-👉 Check what files will be published
 
 ---
 
-### 2. Login to npm
+### ☁️ 4. Push
 
 ```bash
-npm login
+git push --follow-tags
 ```
 
 ---
 
-### 3. Publish package
+### 📦 5. Publish
 
 ```bash
 npm publish --access public
@@ -298,31 +301,33 @@ npm publish --access public
 
 ---
 
-### 4. Verify
-
-* Visit: [https://www.npmjs.com/package/@iamankeshsharma/eslint-config](https://www.npmjs.com/package/@iamankeshsharma/eslint-config)
-* Test install:
+### 🔁 Full Flow
 
 ```bash
-npm install @iamankeshsharma/eslint-config
-```
+git add .
+git commit -m "feat: improve eslint config compatibility"
 
----
-
-## 🔄 Update & Re-publish
-
-```bash
-npm version patch
+npm run release
 git push --follow-tags
-npm publish
+npm publish --access public
 ```
-
 
 ---
 
-## 🤝 Contributing
+## 🧪 Testing Before Publish
 
-PRs are welcome. For major changes, open an issue first.
+```bash
+npm pack
+```
+
+Test install:
+
+```bash
+mkdir test-install
+cd test-install
+npm init -y
+npm install ../your-package.tgz
+```
 
 ---
 
